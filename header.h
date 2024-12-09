@@ -10,12 +10,14 @@
 #include <windows.h>
 #else
 #include <sys/ioctl.h>
-#include <unistd.h>
-#endif
+#include <unistd.h> 
+#endif 
 #define MAX_EMAIL_LENGTH 50
 #define MAX_PASSWORD_LENGTH 50
 #define USER_DATABASE "user_database.dat"
 #define CART_DATABASE "cart_database.txt"
+#define PRODUCT_DATABASE "product_database.txt"
+#define REKAP_PENJUALAN_DATABASE "rekap_penjualan_database.txt"
 
 struct Produk
 {
@@ -23,6 +25,7 @@ struct Produk
     char nama[50];
     char kategori[50];
     int harga;
+    int stock;
 };
 
 struct CartDatabase
@@ -39,42 +42,5 @@ struct User
     char alamat[100];
     char nomorTelepon[20];	
 };
-
-void clearScreen();
-// auth
-void auth();
-void registerUser();
-void loginUser();
-void hashPassword(const char *password, char *hashedPassword);
-void logout();
-// dashboard
-void dashboard();
-void list();
-void search();
-void cartFunction();
-void akun();
-void exitProgram();
-void detail(
-    int id,
-    char nama[],
-    char kategori[],
-    int harga);
-// list produk
-void kategori();
-void listByKategori(char selectedCategory[]);
-// search
-void getSearchKeyword();
-void listBySearchKeyword(char keyword[]);
-// cart
-void addToCart(int id, char nama[]);
-void getCart(struct Produk outputCart[], struct CartDatabase cartDatabase[]);
-void checkout(int totalHarga);
-void deleteProductFromCart();
-// akun
-void infoAkun();
-void editAkun();
-void gantiPassword();
-void infoAplikasi();
-void pusatBantuan();
 
 #endif
