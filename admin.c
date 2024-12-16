@@ -449,7 +449,8 @@ void rekapPenjualan()
         produkCount++;
     }
 
-    printf("%-30s %-30s %-10s\n\n", "Email User", "Nama Barang", "Harga");
+    printf("%-20s %-30s %-10s\n", "Email User", "Nama Barang", "Harga");
+    printf("-------------------------------------------------------------\n");
 	
     for (int i = 0; i < penjualanCount; i++)
     {
@@ -459,7 +460,7 @@ void rekapPenjualan()
         {
             if (penjualanEntries[i].id == produkEntries[j].id)
             {
-                printf("%-30s %-30s Rp%-10d\n", penjualanEntries[i].email, produkEntries[j].nama, produkEntries[j].harga);
+                printf("%-20s %-30s Rp%-10d\n", penjualanEntries[i].email, produkEntries[j].nama, produkEntries[j].harga);
                 found = 1;
                 break;
             }
@@ -497,4 +498,3 @@ void rekapPenjualan()
 
     adminDashboard();
 }
-
