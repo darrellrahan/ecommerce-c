@@ -97,17 +97,19 @@ void cartFunction()
     }
     else
     {
+    	printf("%-4s %-30s %-10s\n", "No", "Nama produk", "Harga produk");
+    	printf("---------------------------------------------------\n");
         int totalHarga = 0;
         for (int i = 0; i < (sizeof(cart) / sizeof(cart[0])); i++)
         {
             if (cart[i].nama[0] != '\0')
             {
                 totalHarga += cart[i].harga;
-                printf("%d. %s\nRp%d\n\n", i + 1, cart[i].nama, cart[i].harga);
+                printf("%-4d %-30s Rp%-10d\n", i + 1, cart[i].nama, cart[i].harga);
             }
         }
 
-        printf("Total harga: Rp%d\n", totalHarga);
+        printf("\nTotal harga: Rp%d\n", totalHarga);
 
         puts("\nInput '1' untuk checkout");
         puts("Input '2' untuk hapus produk dari keranjang");
